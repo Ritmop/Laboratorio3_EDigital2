@@ -2699,7 +2699,8 @@ void setup(void);
 
 void __attribute__((picinterrupt(("")))) isr(void){
     if(SSPIF){
-        spiWrite(PORTB);
+        if(spiRead() == 'P');
+            spiWrite(PORTB);
         SSPIF = 0;
     }
 }
@@ -2716,7 +2717,6 @@ int main(void) {
 
         _delay((unsigned long)((5)*(8000000/4000.0)));
         PORTB = adc_read()>>8;
-
     }
 }
 

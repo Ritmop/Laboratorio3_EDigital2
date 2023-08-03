@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../../../LibreriasPIC/SPI.c Prelab3_Master.c
+SOURCEFILES_QUOTED_IF_SPACED=../../../LibreriasPIC/SPI.c Prelab3_Master.c LCD.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1930832872/SPI.p1 ${OBJECTDIR}/Prelab3_Master.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1930832872/SPI.p1.d ${OBJECTDIR}/Prelab3_Master.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1930832872/SPI.p1 ${OBJECTDIR}/Prelab3_Master.p1 ${OBJECTDIR}/LCD.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1930832872/SPI.p1.d ${OBJECTDIR}/Prelab3_Master.p1.d ${OBJECTDIR}/LCD.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1930832872/SPI.p1 ${OBJECTDIR}/Prelab3_Master.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1930832872/SPI.p1 ${OBJECTDIR}/Prelab3_Master.p1 ${OBJECTDIR}/LCD.p1
 
 # Source Files
-SOURCEFILES=../../../LibreriasPIC/SPI.c Prelab3_Master.c
+SOURCEFILES=../../../LibreriasPIC/SPI.c Prelab3_Master.c LCD.c
 
 
 
@@ -104,6 +104,14 @@ ${OBJECTDIR}/Prelab3_Master.p1: Prelab3_Master.c  nbproject/Makefile-${CND_CONF}
 	@-${MV} ${OBJECTDIR}/Prelab3_Master.d ${OBJECTDIR}/Prelab3_Master.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Prelab3_Master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/LCD.p1.d 
+	@${RM} ${OBJECTDIR}/LCD.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/LCD.p1 LCD.c 
+	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/_ext/1930832872/SPI.p1: ../../../LibreriasPIC/SPI.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/_ext/1930832872" 
@@ -120,6 +128,14 @@ ${OBJECTDIR}/Prelab3_Master.p1: Prelab3_Master.c  nbproject/Makefile-${CND_CONF}
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/Prelab3_Master.p1 Prelab3_Master.c 
 	@-${MV} ${OBJECTDIR}/Prelab3_Master.d ${OBJECTDIR}/Prelab3_Master.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/Prelab3_Master.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/LCD.p1: LCD.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/LCD.p1.d 
+	@${RM} ${OBJECTDIR}/LCD.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/LCD.p1 LCD.c 
+	@-${MV} ${OBJECTDIR}/LCD.d ${OBJECTDIR}/LCD.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/LCD.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

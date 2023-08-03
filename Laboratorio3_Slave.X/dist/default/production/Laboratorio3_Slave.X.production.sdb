@@ -55,6 +55,8 @@ SPI_ACTIVE_2_IDLE 64
 [v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
 "34
 [v _spiWrite spiWrite `(v  1 e 1 0 ]
+"47
+[v _spiRead spiRead `(uc  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
@@ -65,7 +67,7 @@ SPI_ACTIVE_2_IDLE 64
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "43 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave.X\Prelab3_Slave.c
 [v _isr isr `II(v  1 e 1 0 ]
-"55
+"56
 [v _main main `(i  1 e 2 0 ]
 "66
 [v _setup setup `(v  1 e 1 0 ]
@@ -106,23 +108,23 @@ SPI_ACTIVE_2_IDLE 64
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-[s S118 . 1 `uc 1 SCS 1 0 :1:0 
+[s S122 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1882
-[s S124 . 1 `uc 1 . 1 0 :4:0 
+[s S128 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S129 . 1 `S118 1 . 1 0 `S124 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES129  1 e 1 @143 ]
+[u S133 . 1 `S122 1 . 1 0 `S128 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES133  1 e 1 @143 ]
 "2177
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @148 ]
-[s S211 . 1 `uc 1 BF 1 0 :1:0 
+[s S215 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -132,39 +134,39 @@ SPI_ACTIVE_2_IDLE 64
 `uc 1 SMP 1 0 :1:7 
 ]
 "2231
-[s S220 . 1 `uc 1 . 1 0 :2:0 
+[s S224 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
-[s S225 . 1 `uc 1 . 1 0 :2:0 
+[s S229 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DATA 1 0 :1:5 
 ]
-[s S231 . 1 `uc 1 . 1 0 :2:0 
+[s S235 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
-[s S236 . 1 `uc 1 . 1 0 :2:0 
+[s S240 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
-[s S241 . 1 `uc 1 . 1 0 :2:0 
+[s S245 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
-[s S246 . 1 `uc 1 . 1 0 :2:0 
+[s S250 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
-[u S251 . 1 `S211 1 . 1 0 `S220 1 . 1 0 `S225 1 . 1 0 `S231 1 . 1 0 `S236 1 . 1 0 `S241 1 . 1 0 `S246 1 . 1 0 ]
-[v _SSPSTATbits SSPSTATbits `VES251  1 e 1 @148 ]
+[u S255 . 1 `S215 1 . 1 0 `S224 1 . 1 0 `S229 1 . 1 0 `S235 1 . 1 0 `S240 1 . 1 0 `S245 1 . 1 0 `S250 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES255  1 e 1 @148 ]
 "2970
 [v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
 "3387
@@ -193,7 +195,7 @@ SPI_ACTIVE_2_IDLE 64
 [v _VCFG0 VCFG0 `VEb  1 e 0 @1276 ]
 "4566
 [v _VCFG1 VCFG1 `VEb  1 e 0 @1277 ]
-"55 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave.X\Prelab3_Slave.c
+"56 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave.X\Prelab3_Slave.c
 [v _main main `(i  1 e 2 0 ]
 {
 "64
@@ -235,7 +237,7 @@ SPI_ACTIVE_2_IDLE 64
 "43 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave.X\Prelab3_Slave.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"48
+"49
 } 0
 "34 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios/LibreriasPIC/SPI.c
 [v _spiWrite spiWrite `(v  1 e 1 0 ]
@@ -245,4 +247,14 @@ SPI_ACTIVE_2_IDLE 64
 "36
 [v spiWrite@dat dat `uc  1 a 1 0 ]
 "37
+} 0
+"47
+[v _spiRead spiRead `(uc  1 e 1 0 ]
+{
+"51
+} 0
+"29
+[v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
+{
+"32
 } 0

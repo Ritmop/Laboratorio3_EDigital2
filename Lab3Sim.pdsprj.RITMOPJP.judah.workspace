@@ -8,7 +8,7 @@
   <PWI>
    <POPUP w="800" x="38" flags="00000002" y="129" h="200" pid="0" iid="-1">
     <PROPERTIES>
-     <ITEM name="Message Column Width">663</ITEM>
+     <ITEM name="Message Column Width">542</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
      <ITEM name="Source Column Width">100</ITEM>
      <ITEM name="Time Column Width">120</ITEM>
@@ -32,7 +32,7 @@
      <ITEM name="nItems">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="52" x="78" flags="00000008" y="169" h="13" pid="3" iid="1">
+   <POPUP w="380" x="78" flags="00000008" y="169" h="182" pid="3" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="98" flags="0000000a" y="189" h="32" pid="4" iid="1">
@@ -65,7 +65,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="14" x="158" flags="00000008" y="249" h="8" pid="7" iid="1">
+   <POPUP w="114" x="158" flags="00000008" y="249" h="127" pid="7" iid="1">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="178" flags="00000002" y="269" h="8" pid="8" iid="1">
@@ -78,7 +78,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="52" x="198" flags="00000008" y="289" h="13" pid="3" iid="2">
+   <POPUP w="380" x="198" flags="00000008" y="289" h="182" pid="3" iid="2">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="218" flags="0000000a" y="309" h="32" pid="4" iid="2">
@@ -111,7 +111,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="14" x="278" flags="00000008" y="369" h="8" pid="7" iid="2">
+   <POPUP w="114" x="278" flags="00000008" y="369" h="127" pid="7" iid="2">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="298" flags="00000002" y="389" h="8" pid="8" iid="2">
@@ -124,13 +124,13 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="450" x="547" flags="00000022" y="445" h="250" pid="0" iid="4">
+   <POPUP w="450" x="774" flags="00000022" y="205" h="250" pid="0" iid="4">
     <PROPERTIES>
      <ITEM name="HSplitter1Pos">100</ITEM>
-     <ITEM name="VSplitter1Pos">238</ITEM>
+     <ITEM name="VSplitter1Pos">196</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="52" x="58" flags="00000008" y="149" h="13" pid="3" iid="5">
+   <POPUP w="380" x="58" flags="00000008" y="149" h="182" pid="3" iid="5">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="78" flags="0000000a" y="169" h="32" pid="4" iid="5">
@@ -163,7 +163,7 @@
      <ITEM name="TopLineAddress">00000000</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="14" x="138" flags="00000008" y="229" h="8" pid="7" iid="5">
+   <POPUP w="114" x="138" flags="00000008" y="229" h="127" pid="7" iid="5">
     <PROPERTIES/>
    </POPUP>
    <POPUP w="8" x="158" flags="00000002" y="249" h="8" pid="8" iid="5">

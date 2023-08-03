@@ -4,7 +4,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4281 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4281: extern volatile __bit SSPIF __attribute__((address(0x63)));
 [v _SSPIF `Vb ~T0 @X0 0 e@99 ]
-"47 ./SPI.h
+"49 ./SPI.h
+[; ;./SPI.h: 49: char spiRead();
+[v _spiRead `(uc ~T0 @X0 0 e? ]
+"47
 [; ;./SPI.h: 47: void spiWrite(char);
 [v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
 "228 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
@@ -313,22 +316,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "21 Prelab3_Slave.c
-[; ;Prelab3_Slave.c: 21:     while(1){
+[; ;Prelab3_Slave.c: 21:     setup();
 [p x FOSC  =  INTRC_NOCLKOUT ]
 "22
-[; ;Prelab3_Slave.c: 22: 
+[; ;Prelab3_Slave.c: 22:     while(1){
 [p x WDTE  =  OFF        ]
 "23
 [; ;Prelab3_Slave.c: 23: 
 [p x PWRTE  =  OFF       ]
 "24
-[; ;Prelab3_Slave.c: 24:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[; ;Prelab3_Slave.c: 24: 
 [p x MCLRE  =  OFF       ]
 "25
-[; ;Prelab3_Slave.c: 25:         PORTB = adc_read()>>8;
+[; ;Prelab3_Slave.c: 25:         _delay((unsigned long)((5)*(8000000/4000.0)));
 [p x CP  =  OFF          ]
 "26
-[; ;Prelab3_Slave.c: 26: 
+[; ;Prelab3_Slave.c: 26:         PORTB = adc_read()>>8;
 [p x CPD  =  OFF         ]
 "27
 [; ;Prelab3_Slave.c: 27:     }
@@ -361,40 +364,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 "45
 [; ;Prelab3_Slave.c: 45: 
-[e ( _spiWrite (1 -> _PORTB `uc ]
+[e $ ! == -> ( _spiRead ..  `ui -> 80 `ui 140  ]
+[e :U 140 ]
 "46
 [; ;Prelab3_Slave.c: 46: 
-[e = _SSPIF -> -> 0 `i `b ]
+[e ( _spiWrite (1 -> _PORTB `uc ]
 "47
 [; ;Prelab3_Slave.c: 47:     GIE = 1;
-}
-[e :U 139 ]
+[e = _SSPIF -> -> 0 `i `b ]
 "48
 [; ;Prelab3_Slave.c: 48:     PEIE = 1;
+}
+[e :U 139 ]
+"49
+[; ;Prelab3_Slave.c: 49:     SSPIE = 1;
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"55
+"56
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"56
-[e ( _setup ..  ]
 "57
-[e :U 142 ]
+[e ( _setup ..  ]
+"58
+[e :U 143 ]
 {
-"60
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "61
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"62
 [e = _PORTB -> >> ( _adc_read ..  -> 8 `i `uc ]
 "63
 }
-[e :U 141 ]
-[e $U 142  ]
-[e :U 143 ]
+[e :U 142 ]
+[e $U 143  ]
+[e :U 144 ]
 "64
-[e :UE 140 ]
+[e :UE 141 ]
 }
 "66
 [v _setup `(v ~T0 @X0 1 ef ]
@@ -430,5 +437,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 "87
 [e ( _spiInit (4 , , , . `E1301 4 . `E1309 0 . `E1313 1 . `E1317 0 ]
 "88
-[e :UE 144 ]
+[e :UE 145 ]
 }

@@ -14,6 +14,7 @@
 /*--------------------------------- LIBRARIES --------------------------------*/
 #include <xc.h>
 #include "SPI.h"
+#include "LCD.h"
 
 /*---------------------------- CONFIGURATION BITS ----------------------------*/
 // CONFIG1
@@ -34,17 +35,22 @@
 
 /*----------------------- GLOBAL VARIABLES & CONSTANTS -----------------------*/
 #define _XTAL_FREQ 8000000
+uint8_t pot0;
+uint8_t pot1;
+uint8_t count;
+char pot0_s[] = {0,0,0,'\0'};
+char pot1_s[] = {0,0,0,'\0'};
+char count_s[] = {0,0,0,'\0'};
 /*-------------------------------- PROTOTYPES --------------------------------*/
 void setup(void);
+void requestValues(void);
+void outputValues(void);
+void separar_digitos8(uint8_t num, char dig8[]);
 /*------------------------------- RESET VECTOR -------------------------------*/
 
 /*----------------------------- INTERRUPT VECTOR -----------------------------*/
 void __interrupt() isr(void){
-    if(SSPIF){
-        SSPIF = 0;
-    }
 }
-
 /*--------------------------- INTERRUPT SUBROUTINES --------------------------*/
 
 /*---------------------------------- TABLES ----------------------------------*/
@@ -54,18 +60,8 @@ int main(void) {
     setup();
     while(1){
         //Loop
-        __delay_ms(1);
-        //Get POT 0 from Slave 0
-        RC1 = 1;    //Disable slave 1
-        RC0 = 0;    //Enable slave 0
-        spiWrite('a');  //Request
-        PORTA = spiRead();  //Read
-        __delay_ms(1);
-        //Get POT 1 from Slave 1
-        RC0 = 1;    //Disable slave 0
-        RC1 = 0;    //Enable slave 1
-        spiWrite('a');  //Request
-        PORTB = spiRead();  //Read
+        requestValues();    //Solicitar datos a PIC esclavos
+        outputValues();     //Mostrar datos en LCD
     }
 }
 /*-------------------------------- SUBROUTINES -------------------------------*/
@@ -73,17 +69,70 @@ void setup(void){
     ANSEL = 0;
     ANSELH= 0;
     
-    TRISA = 0;
-    PORTA = 0;
-    
-    TRISB = 0;
-    PORTB = 0;
+    TRISD = 0;
+    PORTD = 0;
     
     //OSCILLATOR CONFIG
     OSCCONbits.IRCF = 0b111;  //Internal clock frequency 8MHz
     SCS = 1;
     
+    //LDC Init
+    Lcd_Init();
+    
     //SPI    
-    TRISC = 0b00010000; //Slave select pins
+    TRISC = 0b11010100; //SPI Output/Input pins
     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+}
+
+void requestValues(void){
+    //Get POT 0 from Slave 0
+    RC1 = 1;    //Disable slave 1
+    RC0 = 0;    //Enable slave 0
+    spiWrite('P');  //Request
+    __delay_ms(10);
+    pot0 = spiRead();  //Read POT0
+
+    //Get POT 1 from Slave 1
+    RC0 = 1;    //Disable slave 0
+    RC1 = 0;    //Enable slave 1
+    spiWrite('P');  //Request
+    __delay_ms(10);
+    pot1 = spiRead();  //Read POT1
+
+    //Get Counter from Slave 1
+    spiWrite('C');  //Request
+    __delay_ms(10);
+    count = spiRead();  //Read Counter1       
+}
+
+void outputValues(void){
+    //Preparar datos
+    separar_digitos8(pot0,pot0_s);
+    separar_digitos8(pot1,pot1_s);
+    separar_digitos8(count,count_s);
+    //Mostrar en LCD
+    //Lcd_Clear();
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("P0: ");
+    Lcd_Write_String(pot0_s);
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("P1: ");
+    Lcd_Write_String(pot1_s);
+    Lcd_Set_Cursor(1,11);
+    Lcd_Write_String("C: ");
+    Lcd_Write_String(count_s);
+    
+}
+
+void separar_digitos8(uint8_t num, char dig8[]){
+    uint8_t div1,div2,div3,centenas,decenas,unidades;
+    div1 = num / 10;
+    unidades = num % 10;
+    div2 = div1 / 10;
+    decenas = div1 % 10;    
+    centenas = div2 % 10;
+    
+    dig8[2] = unidades + 0x30;
+    dig8[1] = decenas  + 0x30;
+    dig8[0] = centenas + 0x30;
 }

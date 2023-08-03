@@ -42,7 +42,8 @@ void setup(void);
 /*----------------------------- INTERRUPT VECTOR -----------------------------*/
 void __interrupt() isr(void){
     if(SSPIF){
-        spiWrite(PORTB);
+        if(spiRead() == 'P');
+            spiWrite(PORTB);
         SSPIF = 0;
     }
 }
@@ -59,7 +60,6 @@ int main(void) {
         //Capture pot val
         __delay_ms(5);
         PORTB = adc_read()>>8;
-        //PORTB = 0xFF;
     }
 }
 /*-------------------------------- SUBROUTINES -------------------------------*/

@@ -2664,6 +2664,27 @@ unsigned spiDataReady();
 char spiRead();
 # 16 "Prelab3_Master.c" 2
 
+# 1 "./LCD.h" 1
+# 47 "./LCD.h"
+void Lcd_Port(char a);
+
+void Lcd_Cmd(char a);
+
+void Lcd_Clear(void);
+
+void Lcd_Set_Cursor(char a, char b);
+
+void Lcd_Init(void);
+
+void Lcd_Write_Char(char a);
+
+void Lcd_Write_String(char *a);
+
+void Lcd_Shift_Right(void);
+
+void Lcd_Shift_Left(void);
+# 17 "Prelab3_Master.c" 2
+
 
 
 
@@ -2684,17 +2705,22 @@ char spiRead();
 
 
 
+uint8_t pot0;
+uint8_t pot1;
+uint8_t count;
+char pot0_s[] = {0,0,0,'\0'};
+char pot1_s[] = {0,0,0,'\0'};
+char count_s[] = {0,0,0,'\0'};
 
 void setup(void);
+void requestValues(void);
+void outputValues(void);
+void separar_digitos8(uint8_t num, char dig8[]);
 
 
 
 void __attribute__((picinterrupt(("")))) isr(void){
-    if(SSPIF){
-        SSPIF = 0;
-    }
 }
-
 
 
 
@@ -2704,18 +2730,8 @@ int main(void) {
     setup();
     while(1){
 
-        _delay((unsigned long)((1)*(8000000/4000.0)));
-
-        RC1 = 1;
-        RC0 = 0;
-        spiWrite('a');
-        PORTA = spiRead();
-        _delay((unsigned long)((1)*(8000000/4000.0)));
-
-        RC0 = 1;
-        RC1 = 0;
-        spiWrite('a');
-        PORTB = spiRead();
+        requestValues();
+        outputValues();
     }
 }
 
@@ -2723,17 +2739,70 @@ void setup(void){
     ANSEL = 0;
     ANSELH= 0;
 
-    TRISA = 0;
-    PORTA = 0;
-
-    TRISB = 0;
-    PORTB = 0;
+    TRISD = 0;
+    PORTD = 0;
 
 
     OSCCONbits.IRCF = 0b111;
     SCS = 1;
 
 
-    TRISC = 0b00010000;
+    Lcd_Init();
+
+
+    TRISC = 0b11010100;
     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+}
+
+void requestValues(void){
+
+    RC1 = 1;
+    RC0 = 0;
+    spiWrite('P');
+    _delay((unsigned long)((10)*(8000000/4000.0)));
+    pot0 = spiRead();
+
+
+    RC0 = 1;
+    RC1 = 0;
+    spiWrite('P');
+    _delay((unsigned long)((10)*(8000000/4000.0)));
+    pot1 = spiRead();
+
+
+    spiWrite('C');
+    _delay((unsigned long)((10)*(8000000/4000.0)));
+    count = spiRead();
+}
+
+void outputValues(void){
+
+    separar_digitos8(pot0,pot0_s);
+    separar_digitos8(pot1,pot1_s);
+    separar_digitos8(count,count_s);
+
+
+    Lcd_Set_Cursor(1,1);
+    Lcd_Write_String("P0: ");
+    Lcd_Write_String(pot0_s);
+    Lcd_Set_Cursor(2,1);
+    Lcd_Write_String("P1: ");
+    Lcd_Write_String(pot1_s);
+    Lcd_Set_Cursor(1,11);
+    Lcd_Write_String("C: ");
+    Lcd_Write_String(count_s);
+
+}
+
+void separar_digitos8(uint8_t num, char dig8[]){
+    uint8_t div1,div2,div3,centenas,decenas,unidades;
+    div1 = num / 10;
+    unidades = num % 10;
+    div2 = div1 / 10;
+    decenas = div1 % 10;
+    centenas = div2 % 10;
+
+    dig8[2] = unidades + 0x30;
+    dig8[1] = decenas + 0x30;
+    dig8[0] = centenas + 0x30;
 }
