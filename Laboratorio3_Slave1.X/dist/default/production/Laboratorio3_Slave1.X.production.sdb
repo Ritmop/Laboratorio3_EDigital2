@@ -24,7 +24,7 @@ SPI_CLOCK_IDLE_LOW 0
 SPI_IDLE_2_ACTIVE 0
 SPI_ACTIVE_2_IDLE 64
 ]
-"106 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave1.X\Prelab3_Slave1.c
+"126 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave1.X\Prelab3_Slave1.c
 [e E1301 . `uc
 SPI_MASTER_OSC_DIV4 32
 SPI_MASTER_OSC_DIV16 33
@@ -55,6 +55,7 @@ SPI_ACTIVE_2_IDLE 64
 [v _spiReceiveWait spiReceiveWait `(v  1 s 1 spiReceiveWait ]
 "34
 [v _spiWrite spiWrite `(v  1 e 1 0 ]
+[v i1_spiWrite spiWrite `(v  1 e 1 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
@@ -65,11 +66,11 @@ SPI_ACTIVE_2_IDLE 64
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "4 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave1.X\iocb_init.c
 [v _iocb_init iocb_init `(v  1 e 1 0 ]
-"46 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave1.X\Prelab3_Slave1.c
+"47 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave1.X\Prelab3_Slave1.c
 [v _isr isr `II(v  1 e 1 0 ]
-"70
+"79
 [v _main main `(i  1 e 2 0 ]
-"80
+"100
 [v _setup setup `(v  1 e 1 0 ]
 "166 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [v _PORTA PORTA `VEuc  1 e 1 @5 ]
@@ -215,15 +216,26 @@ SPI_ACTIVE_2_IDLE 64
 [v _potval potval `uc  1 e 1 0 ]
 "40
 [v _request request `uc  1 e 1 0 ]
-"70
+"41
+[v _temp temp `uc  1 e 1 0 ]
+"79
 [v _main main `(i  1 e 2 0 ]
 {
-"78
+"98
 } 0
-"80
+"34 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios/LibreriasPIC/SPI.c
+[v _spiWrite spiWrite `(v  1 e 1 0 ]
+{
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+[v spiWrite@dat dat `uc  1 a 1 wreg ]
+"36
+[v spiWrite@dat dat `uc  1 a 1 4 ]
+"37
+} 0
+"100 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave1.X\Prelab3_Slave1.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"107
+"127
 } 0
 "12 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios/LibreriasPIC/SPI.c
 [v _spiInit spiInit `(v  1 e 1 0 ]
@@ -234,7 +246,7 @@ SPI_ACTIVE_2_IDLE 64
 [v spiInit@sClockIdle sClockIdle `E1304  1 p 1 5 ]
 [v spiInit@sTransmitEdge sTransmitEdge `E1308  1 p 1 6 ]
 "14
-[v spiInit@sType sType `E1292  1 a 1 7 ]
+[v spiInit@sType sType `E1292  1 a 1 0 ]
 "27
 } 0
 "4 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave1.X\iocb_init.c
@@ -254,7 +266,7 @@ SPI_ACTIVE_2_IDLE 64
 [v adc_init@clock clock `uc  1 p 1 5 ]
 [v adc_init@channel channel `uc  1 p 1 6 ]
 "13
-[v adc_init@J J `uc  1 a 1 7 ]
+[v adc_init@J J `uc  1 a 1 2 ]
 "39
 } 0
 "42
@@ -262,17 +274,17 @@ SPI_ACTIVE_2_IDLE 64
 {
 "46
 } 0
-"46 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave1.X\Prelab3_Slave1.c
+"47 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios\ElectronicaDigital2\Laboratorio3_EDigital2\Laboratorio3_Slave1.X\Prelab3_Slave1.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"63
+"72
 } 0
 "34 C:\Users\judah\OneDrive\Escritorio\Proyectos Varios/LibreriasPIC/SPI.c
-[v _spiWrite spiWrite `(v  1 e 1 0 ]
+[v i1_spiWrite spiWrite `(v  1 e 1 0 ]
 {
-[v spiWrite@dat dat `uc  1 a 1 wreg ]
-[v spiWrite@dat dat `uc  1 a 1 wreg ]
+[v i1spiWrite@dat dat `uc  1 a 1 wreg ]
+[v i1spiWrite@dat dat `uc  1 a 1 wreg ]
 "36
-[v spiWrite@dat dat `uc  1 a 1 0 ]
+[v i1spiWrite@dat dat `uc  1 a 1 0 ]
 "37
 } 0

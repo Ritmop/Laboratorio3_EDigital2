@@ -41,6 +41,7 @@ uint8_t count;
 char pot0_s[] = {0,0,0,'\0'};
 char pot1_s[] = {0,0,0,'\0'};
 char count_s[] = {0,0,0,'\0'};
+unsigned t = 0;
 /*-------------------------------- PROTOTYPES --------------------------------*/
 void setup(void);
 void requestValues(void);
@@ -89,20 +90,35 @@ void requestValues(void){
     RC1 = 1;    //Disable slave 1
     RC0 = 0;    //Enable slave 0
     spiWrite('P');  //Request
-    __delay_ms(10);
-    pot0 = spiRead();  //Read POT0
-
-    //Get POT 1 from Slave 1
+    pot0 = spiRead();  //Read POT0    
+    __delay_ms(1);
+    
+    //Get values from Slave 1
     RC0 = 1;    //Disable slave 0
     RC1 = 0;    //Enable slave 1
-    spiWrite('P');  //Request
-    __delay_ms(10);
-    pot1 = spiRead();  //Read POT1
-
-    //Get Counter from Slave 1
-    spiWrite('C');  //Request
-    __delay_ms(10);
-    count = spiRead();  //Read Counter1       
+    if(t){
+        //POT1
+        spiWrite('P');  //Request
+        pot1 = spiRead();  //Read POT1
+    }
+    else{
+        //Counter        
+        spiWrite('C');  //Request
+        count = spiRead();  //Read Counter1
+    }
+    t = ~t;
+    __delay_ms(1);
+    
+    //Get POT 1 from Slave 1
+//    RC0 = 1;    //Disable slave 0
+//    RC1 = 0;    //Enable slave 1
+//    spiWrite('P');  //Request
+//    pot1 = spiRead();  //Read POT1
+//
+//    //Get Counter from Slave 1
+//    spiWrite('C');  //Request
+//    count = spiRead();  //Read Counter1
+//    __delay_ms(1);      
 }
 
 void outputValues(void){
@@ -111,13 +127,14 @@ void outputValues(void){
     separar_digitos8(pot1,pot1_s);
     separar_digitos8(count,count_s);
     //Mostrar en LCD
-    //Lcd_Clear();
     Lcd_Set_Cursor(1,1);
     Lcd_Write_String("P0: ");
     Lcd_Write_String(pot0_s);
+    
     Lcd_Set_Cursor(2,1);
     Lcd_Write_String("P1: ");
     Lcd_Write_String(pot1_s);
+    
     Lcd_Set_Cursor(1,11);
     Lcd_Write_String("C: ");
     Lcd_Write_String(count_s);

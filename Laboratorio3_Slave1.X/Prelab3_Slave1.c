@@ -38,6 +38,7 @@
 #define _XTAL_FREQ 8000000
 uint8_t potval;
 uint8_t request;
+uint8_t temp;
 /*-------------------------------- PROTOTYPES --------------------------------*/
 void setup(void);
 /*------------------------------- RESET VECTOR -------------------------------*/
@@ -47,12 +48,20 @@ void __interrupt() isr(void){
     if(SSPIF){
         //Send requested value        
         request = SSPBUF;
-        if(request == 'P')
-            spiWrite(potval);
-        if(request == 'C')
-            spiWrite(PORTD);
+        spiWrite(temp);
+//        switch(request){
+//            case 'P':
+//                spiWrite(potval);
+//                break;
+//            case 'C':
+//                spiWrite(PORTD);
+//                break;
+//            default:
+//                spiWrite(0x00);
+//        }
         SSPIF = 0;
     }
+    
     if(RBIF){
         if(!RB0)
             PORTD++;
@@ -74,6 +83,17 @@ int main(void) {
         //Capture pot val
         __delay_ms(5);
         potval = adc_read()>>8;
+        
+        switch(request){
+            case 'P':
+                temp = potval;
+                break;
+            case 'C':
+                temp = PORTD;
+                break;
+            default:
+                spiWrite(0x00);
+        }
     }
 }
 /*-------------------------------- SUBROUTINES -------------------------------*/

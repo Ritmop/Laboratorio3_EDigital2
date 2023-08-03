@@ -2,14 +2,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
 [p mainexit ]
-"45 Prelab3_Master.c
-[; ;Prelab3_Master.c: 45: 
-[v _setup `(v ~T0 @X0 0 ef ]
-"46
+"46 Prelab3_Master.c
 [; ;Prelab3_Master.c: 46: 
-[v _requestValues `(v ~T0 @X0 0 ef ]
+[v _setup `(v ~T0 @X0 0 ef ]
 "47
-[; ;Prelab3_Master.c: 47:     TRISC = 0b11010100;
+[; ;Prelab3_Master.c: 47: 
+[v _requestValues `(v ~T0 @X0 0 ef ]
+"48
+[; ;Prelab3_Master.c: 48:     TRISC = 0b11010100;
 [v _outputValues `(v ~T0 @X0 0 ef ]
 "3387 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3387: extern volatile unsigned char ANSEL __attribute__((address(0x188)));
@@ -47,8 +47,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1540 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 1540: extern volatile unsigned char TRISC __attribute__((address(0x087)));
 [v _TRISC `Vuc ~T0 @X0 0 e@135 ]
-"84 Prelab3_Master.c
-[; ;Prelab3_Master.c: 84:     Lcd_Write_String(pot1_s);
+"85 Prelab3_Master.c
 [c E1292 32 33 34 35 36 37 .. ]
 [n E1292 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1300 0 128 .. ]
@@ -69,15 +68,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ./SPI.h
 [; ;./SPI.h: 47: void spiWrite(char);
 [v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
+"49
+[; ;./SPI.h: 49: char spiRead();
+[v _spiRead `(uc ~T0 @X0 0 e? ]
 [v F36 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
 [v __delay `JF36 ~T0 @X0 0 e ]
 [p i __delay ]
-"49 ./SPI.h
-[; ;./SPI.h: 49: char spiRead();
-[v _spiRead `(uc ~T0 @X0 0 e? ]
-"48 Prelab3_Master.c
-[; ;Prelab3_Master.c: 48:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+"49 Prelab3_Master.c
+[; ;Prelab3_Master.c: 49:     spiInit(SPI_MASTER_OSC_DIV4, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [v _separar_digitos8 `(v ~T0 @X0 0 ef2`uc`*uc ]
 "53 ./LCD.h
 [; ;./LCD.h: 53: void Lcd_Set_Cursor(char a, char b);
@@ -326,46 +325,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;Prelab3_Master.c: 22: 
 [p x WDTE  =  OFF        ]
 "23
-[; ;Prelab3_Master.c: 23: int main(void) {
+[; ;Prelab3_Master.c: 23: 
 [p x PWRTE  =  OFF       ]
 "24
-[; ;Prelab3_Master.c: 24:     setup();
+[; ;Prelab3_Master.c: 24: int main(void) {
 [p x MCLRE  =  OFF       ]
 "25
-[; ;Prelab3_Master.c: 25:     while(1){
+[; ;Prelab3_Master.c: 25:     setup();
 [p x CP  =  OFF          ]
 "26
-[; ;Prelab3_Master.c: 26: 
+[; ;Prelab3_Master.c: 26:     while(1){
 [p x CPD  =  OFF         ]
 "27
-[; ;Prelab3_Master.c: 27:         requestValues();
+[; ;Prelab3_Master.c: 27: 
 [p x BOREN  =  OFF       ]
 "28
-[; ;Prelab3_Master.c: 28:         outputValues();
+[; ;Prelab3_Master.c: 28:         requestValues();
 [p x IESO  =  OFF        ]
 "29
-[; ;Prelab3_Master.c: 29:     }
+[; ;Prelab3_Master.c: 29:         outputValues();
 [p x FCMEN  =  OFF       ]
 "30
-[; ;Prelab3_Master.c: 30: }
+[; ;Prelab3_Master.c: 30:     }
 [p x LVP  =  OFF          ]
 "33
-[; ;Prelab3_Master.c: 33:     ANSEL = 0;
+[; ;Prelab3_Master.c: 33: void setup(void){
 [p x BOR4V  =  BOR40V    ]
 "34
-[; ;Prelab3_Master.c: 34:     ANSELH= 0;
+[; ;Prelab3_Master.c: 34:     ANSEL = 0;
 [p x WRT  =  OFF         ]
 "38
-[; ;Prelab3_Master.c: 38: 
+[; ;Prelab3_Master.c: 38:     PORTD = 0;
 [v _pot0 `uc ~T0 @X0 1 e ]
 "39
 [; ;Prelab3_Master.c: 39: 
 [v _pot1 `uc ~T0 @X0 1 e ]
 "40
-[; ;Prelab3_Master.c: 40:     OSCCONbits.IRCF = 0b111;
+[; ;Prelab3_Master.c: 40: 
 [v _count `uc ~T0 @X0 1 e ]
 "41
-[; ;Prelab3_Master.c: 41:     SCS = 1;
+[; ;Prelab3_Master.c: 41:     OSCCONbits.IRCF = 0b111;
 [v _pot0_s `uc ~T0 @X0 -> 4 `i e ]
 [i _pot0_s
 :U ..
@@ -376,7 +375,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "42
-[; ;Prelab3_Master.c: 42: 
+[; ;Prelab3_Master.c: 42:     SCS = 1;
 [v _pot1_s `uc ~T0 @X0 -> 4 `i e ]
 [i _pot1_s
 :U ..
@@ -397,193 +396,220 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `ui `uc
 ..
 ]
+"44
+[; ;Prelab3_Master.c: 44: 
+[v _t `ui ~T0 @X0 1 e ]
+[i _t
+-> -> 0 `i `ui
+]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"52
-[; ;Prelab3_Master.c: 52: 
+"53
+[; ;Prelab3_Master.c: 53: 
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"53
-[; ;Prelab3_Master.c: 53:     RC1 = 1;
+"54
+[; ;Prelab3_Master.c: 54:     RC1 = 1;
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"59
-[; ;Prelab3_Master.c: 59: 
+"60
+[; ;Prelab3_Master.c: 60: 
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"60
-[; ;Prelab3_Master.c: 60:     RC0 = 1;
-[e ( _setup ..  ]
 "61
-[; ;Prelab3_Master.c: 61:     RC1 = 0;
+[; ;Prelab3_Master.c: 61:     RC0 = 1;
+[e ( _setup ..  ]
+"62
+[; ;Prelab3_Master.c: 62:     RC1 = 0;
 [e :U 141 ]
 {
-"63
-[; ;Prelab3_Master.c: 63:     _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( _requestValues ..  ]
 "64
-[; ;Prelab3_Master.c: 64:     pot1 = spiRead();
-[e ( _outputValues ..  ]
+[; ;Prelab3_Master.c: 64: 
+[e ( _requestValues ..  ]
 "65
-[; ;Prelab3_Master.c: 65: 
+[; ;Prelab3_Master.c: 65:         spiWrite('P');
+[e ( _outputValues ..  ]
+"66
+[; ;Prelab3_Master.c: 66:         pot1 = spiRead();
 }
 [e :U 140 ]
 [e $U 141  ]
 [e :U 142 ]
-"66
-[; ;Prelab3_Master.c: 66: 
+"67
+[; ;Prelab3_Master.c: 67:     }
 [e :UE 139 ]
 }
-"68
-[; ;Prelab3_Master.c: 68:     _delay((unsigned long)((10)*(8000000/4000.0)));
+"69
+[; ;Prelab3_Master.c: 69: 
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"69
-[; ;Prelab3_Master.c: 69:     count = spiRead();
-[e = _ANSEL -> -> 0 `i `uc ]
 "70
-[; ;Prelab3_Master.c: 70: }
+[; ;Prelab3_Master.c: 70:         spiWrite('C');
+[e = _ANSEL -> -> 0 `i `uc ]
+"71
+[; ;Prelab3_Master.c: 71:         count = spiRead();
 [e = _ANSELH -> -> 0 `i `uc ]
-"72
-[; ;Prelab3_Master.c: 72: void outputValues(void){
-[e = _TRISD -> -> 0 `i `uc ]
 "73
-[; ;Prelab3_Master.c: 73: 
+[; ;Prelab3_Master.c: 73:     t = ~t;
+[e = _TRISD -> -> 0 `i `uc ]
+"74
+[; ;Prelab3_Master.c: 74:     _delay((unsigned long)((1)*(8000000/4000.0)));
 [e = _PORTD -> -> 0 `i `uc ]
-"76
-[; ;Prelab3_Master.c: 76:     separar_digitos8(count,count_s);
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
 "77
-[; ;Prelab3_Master.c: 77: 
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+"78
 [e = _SCS -> -> 1 `i `b ]
-"80
-[; ;Prelab3_Master.c: 80:     Lcd_Write_String("P0: ");
+"81
 [e ( _Lcd_Init ..  ]
-"83
-[; ;Prelab3_Master.c: 83:     Lcd_Write_String("P1: ");
-[e = _TRISC -> -> 212 `i `uc ]
 "84
-[; ;Prelab3_Master.c: 84:     Lcd_Write_String(pot1_s);
-[e ( _spiInit (4 , , , . `E1292 0 . `E1300 0 . `E1304 1 . `E1308 0 ]
+[e = _TRISC -> -> 212 `i `uc ]
 "85
-[; ;Prelab3_Master.c: 85:     Lcd_Set_Cursor(1,11);
+[e ( _spiInit (4 , , , . `E1292 0 . `E1300 0 . `E1304 1 . `E1308 0 ]
+"86
 [e :UE 143 ]
 }
-"87
-[; ;Prelab3_Master.c: 87:     Lcd_Write_String(count_s);
+"88
 [v _requestValues `(v ~T0 @X0 1 ef ]
 {
 [e :U _requestValues ]
 [f ]
-"89
-[; ;Prelab3_Master.c: 89: }
-[e = _RC1 -> -> 1 `i `b ]
 "90
-[; ;Prelab3_Master.c: 90: 
-[e = _RC0 -> -> 0 `i `b ]
+[e = _RC1 -> -> 1 `i `b ]
 "91
-[; ;Prelab3_Master.c: 91: void separar_digitos8(uint8_t num, char dig8[]){
-[e ( _spiWrite (1 -> -> 80 `ui `uc ]
+[e = _RC0 -> -> 0 `i `b ]
 "92
-[; ;Prelab3_Master.c: 92:     uint8_t div1,div2,div3,centenas,decenas,unidades;
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"93
-[; ;Prelab3_Master.c: 93:     div1 = num / 10;
-[e = _pot0 -> ( _spiRead ..  `uc ]
-"96
-[; ;Prelab3_Master.c: 96:     decenas = div1 % 10;
-[e = _RC0 -> -> 1 `i `b ]
-"97
-[; ;Prelab3_Master.c: 97:     centenas = div2 % 10;
-[e = _RC1 -> -> 0 `i `b ]
-"98
-[; ;Prelab3_Master.c: 98: 
 [e ( _spiWrite (1 -> -> 80 `ui `uc ]
+"93
+[e = _pot0 -> ( _spiRead ..  `uc ]
+"94
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"97
+[e = _RC0 -> -> 1 `i `b ]
+"98
+[e = _RC1 -> -> 0 `i `b ]
 "99
-[; ;Prelab3_Master.c: 99:     dig8[2] = unidades + 0x30;
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"100
-[; ;Prelab3_Master.c: 100:     dig8[1] = decenas + 0x30;
+[e $ ! != _t -> -> 0 `i `ui 145  ]
+{
+"101
+[e ( _spiWrite (1 -> -> 80 `ui `uc ]
+"102
 [e = _pot1 -> ( _spiRead ..  `uc ]
 "103
-[e ( _spiWrite (1 -> -> 67 `ui `uc ]
+}
+[e $U 146  ]
 "104
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"105
-[e = _count -> ( _spiRead ..  `uc ]
+[e :U 145 ]
+{
 "106
+[e ( _spiWrite (1 -> -> 67 `ui `uc ]
+"107
+[e = _count -> ( _spiRead ..  `uc ]
+"108
+}
+[e :U 146 ]
+"109
+[e = _t ~ _t ]
+"110
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"122
+[; ;Prelab3_Master.c: 122: }
 [e :UE 144 ]
 }
-"108
+"124
+[; ;Prelab3_Master.c: 124: void outputValues(void){
 [v _outputValues `(v ~T0 @X0 1 ef ]
 {
 [e :U _outputValues ]
 [f ]
-"110
+"126
+[; ;Prelab3_Master.c: 126:     separar_digitos8(pot0,pot0_s);
 [e ( _separar_digitos8 (2 , _pot0 &U _pot0_s ]
-"111
-[e ( _separar_digitos8 (2 , _pot1 &U _pot1_s ]
-"112
-[e ( _separar_digitos8 (2 , _count &U _count_s ]
-"115
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"116
-[e ( _Lcd_Write_String (1 :s 1C ]
-"117
-[e ( _Lcd_Write_String (1 &U _pot0_s ]
-"118
-[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
-"119
-[e ( _Lcd_Write_String (1 :s 2C ]
-"120
-[e ( _Lcd_Write_String (1 &U _pot1_s ]
-"121
-[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 11 `i `uc ]
-"122
-[e ( _Lcd_Write_String (1 :s 3C ]
-"123
-[e ( _Lcd_Write_String (1 &U _count_s ]
-"125
-[e :UE 145 ]
-}
 "127
+[; ;Prelab3_Master.c: 127:     separar_digitos8(pot1,pot1_s);
+[e ( _separar_digitos8 (2 , _pot1 &U _pot1_s ]
+"128
+[; ;Prelab3_Master.c: 128:     separar_digitos8(count,count_s);
+[e ( _separar_digitos8 (2 , _count &U _count_s ]
+"130
+[; ;Prelab3_Master.c: 130:     Lcd_Set_Cursor(1,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"131
+[; ;Prelab3_Master.c: 131:     Lcd_Write_String("P0: ");
+[e ( _Lcd_Write_String (1 :s 1C ]
+"132
+[; ;Prelab3_Master.c: 132:     Lcd_Write_String(pot0_s);
+[e ( _Lcd_Write_String (1 &U _pot0_s ]
+"134
+[; ;Prelab3_Master.c: 134:     Lcd_Set_Cursor(2,1);
+[e ( _Lcd_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"135
+[; ;Prelab3_Master.c: 135:     Lcd_Write_String("P1: ");
+[e ( _Lcd_Write_String (1 :s 2C ]
+"136
+[; ;Prelab3_Master.c: 136:     Lcd_Write_String(pot1_s);
+[e ( _Lcd_Write_String (1 &U _pot1_s ]
+"138
+[; ;Prelab3_Master.c: 138:     Lcd_Set_Cursor(1,11);
+[e ( _Lcd_Set_Cursor (2 , -> -> 1 `i `uc -> -> 11 `i `uc ]
+"139
+[; ;Prelab3_Master.c: 139:     Lcd_Write_String("C: ");
+[e ( _Lcd_Write_String (1 :s 3C ]
+"140
+[; ;Prelab3_Master.c: 140:     Lcd_Write_String(count_s);
+[e ( _Lcd_Write_String (1 &U _count_s ]
+"142
+[; ;Prelab3_Master.c: 142: }
+[e :UE 147 ]
+}
+"144
+[; ;Prelab3_Master.c: 144: void separar_digitos8(uint8_t num, char dig8[]){
 [v _separar_digitos8 `(v ~T0 @X0 1 ef2`uc`*uc ]
 {
 [e :U _separar_digitos8 ]
 [v _num `uc ~T0 @X0 1 r1 ]
 [v _dig8 `*uc ~T0 @X0 1 r2 ]
 [f ]
-"128
+"145
+[; ;Prelab3_Master.c: 145:     uint8_t div1,div2,div3,centenas,decenas,unidades;
 [v _div1 `uc ~T0 @X0 1 a ]
 [v _div2 `uc ~T0 @X0 1 a ]
 [v _div3 `uc ~T0 @X0 1 a ]
 [v _centenas `uc ~T0 @X0 1 a ]
 [v _decenas `uc ~T0 @X0 1 a ]
 [v _unidades `uc ~T0 @X0 1 a ]
-"129
+"146
+[; ;Prelab3_Master.c: 146:     div1 = num / 10;
 [e = _div1 -> / -> _num `i -> 10 `i `uc ]
-"130
+"147
+[; ;Prelab3_Master.c: 147:     unidades = num % 10;
 [e = _unidades -> % -> _num `i -> 10 `i `uc ]
-"131
+"148
+[; ;Prelab3_Master.c: 148:     div2 = div1 / 10;
 [e = _div2 -> / -> _div1 `i -> 10 `i `uc ]
-"132
+"149
+[; ;Prelab3_Master.c: 149:     decenas = div1 % 10;
 [e = _decenas -> % -> _div1 `i -> 10 `i `uc ]
-"133
+"150
+[; ;Prelab3_Master.c: 150:     centenas = div2 % 10;
 [e = _centenas -> % -> _div2 `i -> 10 `i `uc ]
-"135
+"152
+[; ;Prelab3_Master.c: 152:     dig8[2] = unidades + 0x30;
 [e = *U + _dig8 * -> -> 2 `i `x -> -> # *U _dig8 `i `x -> + -> _unidades `i -> 48 `i `uc ]
-"136
+"153
+[; ;Prelab3_Master.c: 153:     dig8[1] = decenas + 0x30;
 [e = *U + _dig8 * -> -> 1 `i `x -> -> # *U _dig8 `i `x -> + -> _decenas `i -> 48 `i `uc ]
-"137
+"154
+[; ;Prelab3_Master.c: 154:     dig8[0] = centenas + 0x30;
 [e = *U + _dig8 * -> -> 0 `i `x -> -> # *U _dig8 `i `x -> + -> _centenas `i -> 48 `i `uc ]
-"138
-[e :UE 146 ]
+"155
+[; ;Prelab3_Master.c: 155: }
+[e :UE 148 ]
 }
 [a 3C 67 58 32 0 ]
 [a 2C 80 49 58 32 0 ]

@@ -10,21 +10,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47 ./SPI.h
 [; ;./SPI.h: 47: void spiWrite(char);
 [v _spiWrite `(v ~T0 @X0 0 ef1`uc ]
-"352 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
-"4134
+"4134 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4134: extern volatile __bit RBIF __attribute__((address(0x58)));
 [v _RBIF `Vb ~T0 @X0 0 e@88 ]
 "4107
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4107: extern volatile __bit RB0 __attribute__((address(0x30)));
 [v _RB0 `Vb ~T0 @X0 0 e@48 ]
+"352
+[; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
+[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
 "4110
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4110: extern volatile __bit RB1 __attribute__((address(0x31)));
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
 [p mainexit ]
-"42 Prelab3_Slave1.c
-[; ;Prelab3_Slave1.c: 42: 
+"43 Prelab3_Slave1.c
 [v _setup `(v ~T0 @X0 0 ef ]
 [v F36 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\builtins.h
@@ -84,7 +83,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4278
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 4278: extern volatile __bit SSPIE __attribute__((address(0x463)));
 [v _SSPIE `Vb ~T0 @X0 0 e@1123 ]
-"106 Prelab3_Slave1.c
+"126 Prelab3_Slave1.c
+[; ;Prelab3_Slave1.c: 126:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
 [c E1301 32 33 34 35 36 37 .. ]
 [n E1301 . SPI_MASTER_OSC_DIV4 SPI_MASTER_OSC_DIV16 SPI_MASTER_OSC_DIV64 SPI_MASTER_TMR2 SPI_SLAVE_SS_EN SPI_SLAVE_SS_DIS  ]
 [c E1309 0 128 .. ]
@@ -331,172 +331,206 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Program Files/Microchip/MPLABX/v6.10/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "22 Prelab3_Slave1.c
-[; ;Prelab3_Slave1.c: 22:         if(!RB1)
 [p x FOSC  =  INTRC_NOCLKOUT ]
 "23
-[; ;Prelab3_Slave1.c: 23:             PORTD--;
 [p x WDTE  =  OFF        ]
 "24
-[; ;Prelab3_Slave1.c: 24:         RBIF = 0;
 [p x PWRTE  =  OFF       ]
 "25
-[; ;Prelab3_Slave1.c: 25:     }
 [p x MCLRE  =  OFF       ]
 "26
-[; ;Prelab3_Slave1.c: 26: }
 [p x CP  =  OFF          ]
 "27
-[; ;Prelab3_Slave1.c: 27: 
 [p x CPD  =  OFF         ]
 "28
-[; ;Prelab3_Slave1.c: 28: 
 [p x BOREN  =  OFF       ]
 "29
-[; ;Prelab3_Slave1.c: 29: 
 [p x IESO  =  OFF        ]
 "30
-[; ;Prelab3_Slave1.c: 30: 
 [p x FCMEN  =  OFF       ]
 "31
-[; ;Prelab3_Slave1.c: 31: 
 [p x LVP  =  OFF          ]
 "34
-[; ;Prelab3_Slave1.c: 34:     setup();
 [p x BOR4V  =  BOR40V    ]
 "35
-[; ;Prelab3_Slave1.c: 35:     while(1){
 [p x WRT  =  OFF         ]
 "39
-[; ;Prelab3_Slave1.c: 39:         potval = adc_read()>>8;
 [v _potval `uc ~T0 @X0 1 e ]
 "40
-[; ;Prelab3_Slave1.c: 40:     }
 [v _request `uc ~T0 @X0 1 e ]
+"41
+[v _temp `uc ~T0 @X0 1 e ]
 [v $root$_isr `(v ~T0 @X0 0 e ]
-"46
-[; ;Prelab3_Slave1.c: 46:     ANSEL = 1;
+"47
 [v _isr `(v ~T1 @X0 1 ef ]
 {
 [e :U _isr ]
 [f ]
-"47
-[; ;Prelab3_Slave1.c: 47:     ANSELH= 0;
+"48
 [e $ ! _SSPIF 139  ]
 {
-"49
-[; ;Prelab3_Slave1.c: 49:     TRISD = 0;
-[e = _request _SSPBUF ]
 "50
-[; ;Prelab3_Slave1.c: 50:     PORTD = 0;
-[e $ ! == -> _request `ui -> 80 `ui 140  ]
+[e = _request _SSPBUF ]
 "51
-[; ;Prelab3_Slave1.c: 51: 
-[e ( _spiWrite (1 -> _potval `uc ]
-[e :U 140 ]
-"52
-[; ;Prelab3_Slave1.c: 52:     TRISB = 255;
-[e $ ! == -> _request `ui -> 67 `ui 141  ]
-"53
-[; ;Prelab3_Slave1.c: 53: 
-[e ( _spiWrite (1 -> _PORTD `uc ]
-[e :U 141 ]
-"54
-[; ;Prelab3_Slave1.c: 54: 
+[e ( _spiWrite (1 -> _temp `uc ]
+"62
+[; ;Prelab3_Slave1.c: 62:         SSPIF = 0;
 [e = _SSPIF -> -> 0 `i `b ]
-"55
-[; ;Prelab3_Slave1.c: 55:     OSCCONbits.IRCF = 0b111;
+"63
+[; ;Prelab3_Slave1.c: 63:     }
 }
 [e :U 139 ]
-"56
-[; ;Prelab3_Slave1.c: 56:     SCS = 1;
-[e $ ! _RBIF 142  ]
+"65
+[; ;Prelab3_Slave1.c: 65:     if(RBIF){
+[e $ ! _RBIF 140  ]
 {
-"57
-[; ;Prelab3_Slave1.c: 57: 
-[e $ ! ! _RB0 143  ]
-"58
-[; ;Prelab3_Slave1.c: 58: 
+"66
+[; ;Prelab3_Slave1.c: 66:         if(!RB0)
+[e $ ! ! _RB0 141  ]
+"67
+[; ;Prelab3_Slave1.c: 67:             PORTD++;
 [e ++ _PORTD -> -> 1 `i `Vuc ]
-[e :U 143 ]
-"59
-[; ;Prelab3_Slave1.c: 59:     adc_init(0, 0, 8, 0);
-[e $ ! ! _RB1 144  ]
-"60
-[; ;Prelab3_Slave1.c: 60: 
+[e :U 141 ]
+"68
+[; ;Prelab3_Slave1.c: 68:         if(!RB1)
+[e $ ! ! _RB1 142  ]
+"69
+[; ;Prelab3_Slave1.c: 69:             PORTD--;
 [e -- _PORTD -> -> 1 `i `Vuc ]
-[e :U 144 ]
-"61
-[; ;Prelab3_Slave1.c: 61: 
-[e = _RBIF -> -> 0 `i `b ]
-"62
-[; ;Prelab3_Slave1.c: 62:     iocb_init(0x03);
-}
 [e :U 142 ]
-"63
-[; ;Prelab3_Slave1.c: 63: 
+"70
+[; ;Prelab3_Slave1.c: 70:         RBIF = 0;
+[e = _RBIF -> -> 0 `i `b ]
+"71
+[; ;Prelab3_Slave1.c: 71:     }
+}
+[e :U 140 ]
+"72
+[; ;Prelab3_Slave1.c: 72: }
 [e :UE 138 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"70
-[; ;Prelab3_Slave1.c: 70: }
+"79
+[; ;Prelab3_Slave1.c: 79: int main(void) {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"71
+"80
+[; ;Prelab3_Slave1.c: 80:     setup();
 [e ( _setup ..  ]
-"72
-[e :U 147 ]
+"81
+[; ;Prelab3_Slave1.c: 81:     while(1){
+[e :U 145 ]
 {
-"75
+"84
+[; ;Prelab3_Slave1.c: 84:         _delay((unsigned long)((5)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"76
+"85
+[; ;Prelab3_Slave1.c: 85:         potval = adc_read()>>8;
 [e = _potval -> >> ( _adc_read ..  -> 8 `i `uc ]
-"77
+"87
+[; ;Prelab3_Slave1.c: 87:         switch(request){
+[e $U 148  ]
+{
+"88
+[; ;Prelab3_Slave1.c: 88:             case 'P':
+[e :U 149 ]
+"89
+[; ;Prelab3_Slave1.c: 89:                 temp = potval;
+[e = _temp _potval ]
+"90
+[; ;Prelab3_Slave1.c: 90:                 break;
+[e $U 147  ]
+"91
+[; ;Prelab3_Slave1.c: 91:             case 'C':
+[e :U 150 ]
+"92
+[; ;Prelab3_Slave1.c: 92:                 temp = PORTD;
+[e = _temp _PORTD ]
+"93
+[; ;Prelab3_Slave1.c: 93:                 break;
+[e $U 147  ]
+"94
+[; ;Prelab3_Slave1.c: 94:             default:
+[e :U 151 ]
+"95
+[; ;Prelab3_Slave1.c: 95:                 spiWrite(0x00);
+[e ( _spiWrite (1 -> -> 0 `i `uc ]
+"96
+[; ;Prelab3_Slave1.c: 96:         }
 }
-[e :U 146 ]
 [e $U 147  ]
 [e :U 148 ]
-"78
-[e :UE 145 ]
+[e [\ -> _request `i , $ -> -> 80 `ui `i 149
+ , $ -> -> 67 `ui `i 150
+ 151 ]
+[e :U 147 ]
+"97
+[; ;Prelab3_Slave1.c: 97:     }
 }
-"80
+[e :U 144 ]
+[e $U 145  ]
+[e :U 146 ]
+"98
+[; ;Prelab3_Slave1.c: 98: }
+[e :UE 143 ]
+}
+"100
+[; ;Prelab3_Slave1.c: 100: void setup(void){
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-"81
+"101
+[; ;Prelab3_Slave1.c: 101:     TRISA = 0b00100001;
 [e = _TRISA -> -> 33 `i `uc ]
-"82
-[e = _PORTA -> -> 0 `i `uc ]
-"83
-[e = _ANSEL -> -> 1 `i `uc ]
-"84
-[e = _ANSELH -> -> 0 `i `uc ]
-"86
-[e = _TRISD -> -> 0 `i `uc ]
-"87
-[e = _PORTD -> -> 0 `i `uc ]
-"89
-[e = _TRISB -> -> 255 `i `uc ]
-"92
-[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
-"93
-[e = _SCS -> -> 1 `i `b ]
-"96
-[e ( _adc_init (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 8 `i `uc -> -> 0 `i `uc ]
-"99
-[e ( _iocb_init (1 -> -> 3 `i `uc ]
 "102
-[e = _GIE -> -> 1 `i `b ]
+[; ;Prelab3_Slave1.c: 102:     PORTA = 0;
+[e = _PORTA -> -> 0 `i `uc ]
 "103
-[e = _PEIE -> -> 1 `i `b ]
+[; ;Prelab3_Slave1.c: 103:     ANSEL = 1;
+[e = _ANSEL -> -> 1 `i `uc ]
 "104
-[e = _SSPIE -> -> 1 `i `b ]
-"105
-[e = _SSPIF -> -> 0 `i `b ]
+[; ;Prelab3_Slave1.c: 104:     ANSELH= 0;
+[e = _ANSELH -> -> 0 `i `uc ]
 "106
-[e ( _spiInit (4 , , , . `E1301 4 . `E1309 0 . `E1313 1 . `E1317 0 ]
+[; ;Prelab3_Slave1.c: 106:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
 "107
-[e :UE 149 ]
+[; ;Prelab3_Slave1.c: 107:     PORTD = 0;
+[e = _PORTD -> -> 0 `i `uc ]
+"109
+[; ;Prelab3_Slave1.c: 109:     TRISB = 255;
+[e = _TRISB -> -> 255 `i `uc ]
+"112
+[; ;Prelab3_Slave1.c: 112:     OSCCONbits.IRCF = 0b111;
+[e = . . _OSCCONbits 0 4 -> -> 7 `i `uc ]
+"113
+[; ;Prelab3_Slave1.c: 113:     SCS = 1;
+[e = _SCS -> -> 1 `i `b ]
+"116
+[; ;Prelab3_Slave1.c: 116:     adc_init(0, 0, 8, 0);
+[e ( _adc_init (4 , , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 8 `i `uc -> -> 0 `i `uc ]
+"119
+[; ;Prelab3_Slave1.c: 119:     iocb_init(0x03);
+[e ( _iocb_init (1 -> -> 3 `i `uc ]
+"122
+[; ;Prelab3_Slave1.c: 122:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
+"123
+[; ;Prelab3_Slave1.c: 123:     PEIE = 1;
+[e = _PEIE -> -> 1 `i `b ]
+"124
+[; ;Prelab3_Slave1.c: 124:     SSPIE = 1;
+[e = _SSPIE -> -> 1 `i `b ]
+"125
+[; ;Prelab3_Slave1.c: 125:     SSPIF = 0;
+[e = _SSPIF -> -> 0 `i `b ]
+"126
+[; ;Prelab3_Slave1.c: 126:     spiInit(SPI_SLAVE_SS_EN, SPI_DATA_SAMPLE_MIDDLE, SPI_CLOCK_IDLE_LOW, SPI_IDLE_2_ACTIVE);
+[e ( _spiInit (4 , , , . `E1301 4 . `E1309 0 . `E1313 1 . `E1317 0 ]
+"127
+[; ;Prelab3_Slave1.c: 127: }
+[e :UE 152 ]
 }

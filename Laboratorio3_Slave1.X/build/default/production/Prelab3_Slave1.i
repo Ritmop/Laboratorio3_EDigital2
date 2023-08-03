@@ -2699,6 +2699,7 @@ void iocb_init(uint8_t);
 
 uint8_t potval;
 uint8_t request;
+uint8_t temp;
 
 void setup(void);
 
@@ -2708,12 +2709,11 @@ void __attribute__((picinterrupt(("")))) isr(void){
     if(SSPIF){
 
         request = SSPBUF;
-        if(request == 'P')
-            spiWrite(potval);
-        if(request == 'C')
-            spiWrite(PORTD);
+        spiWrite(temp);
+# 62 "Prelab3_Slave1.c"
         SSPIF = 0;
     }
+
     if(RBIF){
         if(!RB0)
             PORTD++;
@@ -2735,6 +2735,17 @@ int main(void) {
 
         _delay((unsigned long)((5)*(8000000/4000.0)));
         potval = adc_read()>>8;
+
+        switch(request){
+            case 'P':
+                temp = potval;
+                break;
+            case 'C':
+                temp = PORTD;
+                break;
+            default:
+                spiWrite(0x00);
+        }
     }
 }
 
