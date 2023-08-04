@@ -1,5 +1,5 @@
 /* 
- * File:   Prelab3_Slave.c
+ * File:   Prelab3_Master.c
  * Device: PIC16F887
  * Author: Judah Pérez - 21536
  *Compiler: XC8 (v2.41)
